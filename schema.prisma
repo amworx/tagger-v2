@@ -1,0 +1,41 @@
+datasource db {
+  provider = "sqlite"
+  // Wasp requires that the url is set to the DATABASE_URL environment variable.
+  url      = env("DATABASE_URL")
+}
+
+// Wasp requires the `prisma-client-js` generator to be present.
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+    id       Int    @id @default(autoincrement())
+    username String
+    password String
+    email    String
+}
+
+model AssetType {
+    id   Int    @id @default(autoincrement())
+    name String
+    code String
+}
+
+model Building {
+    id   Int    @id @default(autoincrement())
+    name String
+    code String
+}
+
+model Department {
+    id   Int    @id @default(autoincrement())
+    name String
+    code String
+}
+
+model Position {
+    id   Int    @id @default(autoincrement())
+    name String
+    code String
+}
